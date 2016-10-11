@@ -11,4 +11,8 @@ class Payload < ActiveRecord::Base
   belongs_to :resolution
   belongs_to :ip
 
+  def self.average_response_time
+    average("responded_in")
+  end
+
 end

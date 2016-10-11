@@ -142,4 +142,29 @@ RSpec.describe "payload" do
     expect(payload).to_not be_valid
   end
 
+  it ".average_reponse_time" do
+    Payload.create({"url_id":1,
+                    "requested_at":"2013-02-16 21:38:28 -0700",
+                    "responded_in":20,
+                    "referred_by_id":1,
+                    "request_type_id":1,
+                    "event_name_id":1,
+                    "user_agent_id":1,
+                    "resolution_id":1,
+                    "ip_id":1
+                  })
+    Payload.create({"url_id":1,
+                    "requested_at":"2013-02-16 21:38:28 -0700",
+                    "responded_in":40,
+                    "referred_by_id":1,
+                    "request_type_id":1,
+                    "event_name_id":1,
+                    "user_agent_id":1,
+                    "resolution_id":1,
+                    "ip_id":1
+                  })
+
+    expect(Payload.average_response_time).to eq(30)
+  end
+
 end
