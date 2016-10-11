@@ -25,4 +25,15 @@ RSpec.describe "request_type" do
     end
   end
 
+  describe ".http_verbs" do
+    it "lists all unique http verbs" do
+      RequestType.create(request_type: "GET")
+      RequestType.create(request_type: "POST")
+      RequestType.create(request_type: "POST")
+      RequestType.create(request_type: "PUT")
+
+      expect(RequestType.http_verbs).to eq(["GET", "POST", "PUT"])
+    end
+  end
+
 end
