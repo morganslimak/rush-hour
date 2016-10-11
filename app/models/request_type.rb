@@ -3,10 +3,11 @@ class RequestType < ActiveRecord::Base
   has_many :payloads
 
   def self.most_frequent_request
-    group(:request_type).count.max_by{|k, v| v}.first
+    grouped = Payload.group(:request_type).count
+    grouped.max_by{|k, v| v}.first.request_type
   end
 
   def self.http_verbs
-    pluck(:request_type).uniq
+    pluck(:request_type)
   end
 end

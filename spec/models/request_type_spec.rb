@@ -17,9 +17,39 @@ RSpec.describe "request_type" do
 
   describe ".most_frequent_request" do
     it "returns the most frequent request type" do
-      RequestType.create(request_type: "GET")
-      RequestType.create(request_type: "POST")
-      RequestType.create(request_type: "POST")
+      get = RequestType.create(request_type: "GET")
+      post = RequestType.create(request_type: "POST")
+
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":get.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":post.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":post.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
 
       expect(RequestType.most_frequent_request).to eq("POST")
     end
@@ -27,10 +57,50 @@ RSpec.describe "request_type" do
 
   describe ".http_verbs" do
     it "lists all unique http verbs" do
-      RequestType.create(request_type: "GET")
-      RequestType.create(request_type: "POST")
-      RequestType.create(request_type: "POST")
-      RequestType.create(request_type: "PUT")
+      get = RequestType.create(request_type: "GET")
+      post = RequestType.create(request_type: "POST")
+      put = RequestType.create(request_type: "PUT")
+
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":get.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":post.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":post.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
+      Payload.create({"url_id":1,
+                      "requested_at":"2013-02-16 21:38:28 -0700",
+                      "responded_in":40,
+                      "referred_by_id":1,
+                      "request_type_id":put.id,
+                      "event_name_id":1,
+                      "user_agent_id":1,
+                      "resolution_id":1,
+                      "ip_id":1
+                    })
 
       expect(RequestType.http_verbs).to eq(["GET", "POST", "PUT"])
     end
