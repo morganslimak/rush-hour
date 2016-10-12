@@ -4,10 +4,21 @@ module RushHour
       erb :error
     end
 
-    get '/sources' do
+    post '/sources' do
       @identifier = params[:identifier]
       @root_url = params[:rootUrl]
-      require "pry"; binding.pry
+
+      if @identifier.nil? || @root_url.nil?
+        status 400
+        body "Missing Parameters - 400 Bad Request"
+      elsif Client.exists?(identifier: @identifier)
+        status 403
+        body "Identifier Already Exists - 403 Forbidden"
+      else
+        status 200
+        body "Success - {'identifier': #{@identifier}}"
+        Client.create(identifier: @identifier, root_url: @root_url)
+      end
     end
   end
 end
