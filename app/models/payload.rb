@@ -10,6 +10,7 @@ class Payload < ActiveRecord::Base
   belongs_to :user_agent
   belongs_to :resolution
   belongs_to :ip
+  belongs_to :client
 
   def self.average_response_time
     average("responded_in")

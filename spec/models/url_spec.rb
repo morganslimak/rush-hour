@@ -381,7 +381,7 @@ RSpec.describe "url" do
                       "ip_id":1
                     })
       expected = [ref4.referred_by, ref1.referred_by, ref2.referred_by]
-      expect(url1.referrers).to eq(expected)
+      expect(url1.referrers).to match_array(expected)
     end
   end
 
@@ -464,7 +464,7 @@ RSpec.describe "url" do
                       "ip_id":1
                     })
       expected = [ua3.user_agent, ua4.user_agent, ua2.user_agent]
-      expect(url1.agents).to eq(expected)
+      expect(url1.agents).to match_array(expected)
     end
   end
 

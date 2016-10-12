@@ -3,7 +3,11 @@ module RushHour
     not_found do
       erb :error
     end
-    
-    # Write the rest of your controller code here!
+
+    get '/sources' do
+      @identifier = params[:identifier]
+      @root_url = params[:rootUrl]
+      require "pry"; binding.pry
+    end
   end
 end
