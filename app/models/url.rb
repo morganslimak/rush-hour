@@ -7,4 +7,12 @@ class Url < ActiveRecord::Base
     sorted = grouped.sort_by{|k, v| v}.reverse
     sorted.map{|obj| obj.first.url}
   end
+
+  def max_response_time
+    payloads.maximum(:responded_in)
+  end
+
+  def min_response_time
+    payloads.minimum(:responded_in)
+  end
 end

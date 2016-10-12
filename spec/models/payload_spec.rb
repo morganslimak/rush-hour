@@ -183,7 +183,7 @@ RSpec.describe "payload" do
                       "resolution_id":1,
                       "ip_id":1
                     })
-      Payload.create({"url_id":1,
+      Payload.create({"url_id":2,
                       "requested_at":"2013-02-16 21:38:28 -0700",
                       "responded_in":40,
                       "referred_by_id":1,
@@ -210,7 +210,7 @@ RSpec.describe "payload" do
                       "resolution_id":1,
                       "ip_id":1
                     })
-      Payload.create({"url_id":1,
+      Payload.create({"url_id":2,
                       "requested_at":"2013-02-16 21:38:28 -0700",
                       "responded_in":40,
                       "referred_by_id":1,

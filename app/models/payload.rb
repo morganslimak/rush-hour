@@ -23,4 +23,8 @@ class Payload < ActiveRecord::Base
     minimum("responded_in")
   end
 
+  def self.url_max_response_time(url)
+    Payload.find_by url: url
+  end
+
 end
