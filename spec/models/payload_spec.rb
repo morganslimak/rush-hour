@@ -224,5 +224,5 @@ RSpec.describe "payload" do
       expect(Payload.min_response_time).to eq(20)
     end
   end
-
+  
 end
