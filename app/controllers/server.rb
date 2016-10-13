@@ -22,9 +22,19 @@ module RushHour
     end
 
     post '/sources/:identifier/data' do
-      client = Client.find_by identifier: params[:identifier]
-      payload = PayloadParser.parser(params[:payload])
-      client.payloads.create(payload)
+      if params[:payload].nil?
+        status 400
+        body 'Missing Payload - 400 Bad Request'
+      elsif !Client.exists?(identifier: params[:identifier])
+        status 403
+        body 'Application Not Registered - 403 Forbidden'
+      else
+        payload = PayloadParser.parser(params[:payload])
+        client = Client.find_by identifier: params[:identifier]
+        client.payloads.create(payload)
+        status 200
+        body 'Success - 200 OK'
+      end
     end
 
   end
