@@ -22,9 +22,9 @@ module RushHour
     end
 
     post '/sources/:identifier/data' do
-      @payload = JSON.parse(params[:payload])
-      @client = Client.find_by identifier: params[:identifier]
-      @client.payloads.create(@payload)
+      client = Client.find_by identifier: params[:identifier]
+      payload = PayloadParser.parser(params[:payload])
+      client.payloads.create(payload)
     end
 
   end
