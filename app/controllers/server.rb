@@ -20,5 +20,12 @@ module RushHour
         Client.create(identifier: @identifier, root_url: @root_url)
       end
     end
+
+    post '/sources/:identifier/data' do
+      @payload = JSON.parse(params[:payload])
+      @client = Client.find_by identifier: params[:identifier]
+      @client.payloads.create(@payload)
+    end
+
   end
 end
