@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Rush Hour</title>
+  </head>
+  <body>
+    <h1>Client Stats for all payloads</h1>
+    <table id="client-stats">
+      <tr>
+        <th>Average Response Time</th>
+        <td><%= @client.payloads.average_response_time %>
+      </tr>
+      <tr>
+        <th>Maximum Response Time</th>
+        <td><%= @client.payloads.max_response_time %>
+      </tr>
+      <tr>
+        <th>Minimum Response Time</th>
+        <td><%= @client.payloads.min_response_time %>
+      </tr>
+      <tr>
+        <th>Most Frequent Request Type</th>
+        <td><%= @client.request_types.most_frequent_request %>
+      </tr>
+      <tr>
+        <th>All Request Types</th>
+        <td><%= @client.request_types.http_verbs.join(",") %>
+      </tr>
+      <tr>
+        <th>Urls Most Requested To Least</th>
+        <td><%= @client.urls.most_to_least_requested.join(",") %>
+      </tr>
+      <tr>
+        <th>Most Common Web Browsers</th>
+        <td><%= @client.user_agents.list_browsers %>
+      </tr>
+      <tr>
+        <th>Most Common Operating Systems</th>
+        <td><%= @client.user_agents.list_os %>
+      </tr>
+      <tr>
+        <th>Screen Resolutions</th>
+        <td><%= @client.resolutions.list_resolutions %>
+      </tr>
+    </table>
+  </body>
+</html>

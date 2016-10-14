@@ -8,6 +8,6 @@ class RequestType < ActiveRecord::Base
   end
 
   def self.http_verbs
-    pluck(:request_type)
+    pluck(:request_type).uniq
   end
 end

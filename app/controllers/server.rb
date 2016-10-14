@@ -37,5 +37,11 @@ module RushHour
       end
     end
 
+    get '/sources/:identifier' do
+      @client = Client.find_by identifier: params[:identifier]
+
+      erb :client
+    end
+
   end
 end
