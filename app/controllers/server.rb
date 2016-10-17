@@ -38,9 +38,19 @@ module RushHour
     end
 
     get '/sources/:identifier' do
-      @client = Client.find_by identifier: params[:identifier]
-
-      erb :client
+      identifier = params[:identifier]
+      if !Client.exists?(identifier: identifier)
+        status 400
+        body 'Client does not exist - 400 Bad Request'
+      else
+        @client = Client.find_by identifier: identifier
+        if @client.payloads.empty?
+          status 400
+          body 'Client does not have any payloads - 400 Bad Request'
+        else
+          erb :client
+        end
+      end
     end
 
   end
