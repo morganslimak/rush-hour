@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Rush Hour</title>
+  </head>
+  <body>
+    <h1>Client Stats for Url</h1>
+    <table id="client-stats">
+      <tr>
+        <th>Max Response Time</th>
+        <td><%= @url.max_response_time %>
+      </tr>
+      <tr>
+        <th>Min Response Time</th>
+        <td><%= @url.min_response_time %>
+      </tr>
+      <tr>
+        <th>Average Response Time</th>
+        <td><%= @url.average_response_time %>
+      </tr>
+      <tr>
+        <th>List of Response Times</th>
+        <td><%= @url.list_response_times %>
+      </tr>
+      <tr>
+        <th>Request Types</th>
+        <td><%= @url.http_verbs %>
+      </tr>
+      <tr>
+        <th>Most Common Referrers</th>
+        <td><%= @url.max_response_time %>
+      </tr>
+      <tr>
+        <th>Most Common User Agents</th>
+        <td><%= @url.agents %>
+      </tr>
+    </table>
+  </body>
+</html>

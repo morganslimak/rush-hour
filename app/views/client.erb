@@ -43,5 +43,9 @@
         <td><%= @client.resolutions.list_resolutions(@client.payloads) %>
       </tr>
     </table>
+    <h2>Stats by specific url:</h2>
+    <% @client.urls.uniq.each do |url| %>
+      <a href='/sources/<%= @client.identifier + "/urls" + UriParser.parser(url.url)%>'><%= url.url %></a></br>
+    <% end %>
   </body>
 </html>

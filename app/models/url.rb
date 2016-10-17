@@ -29,7 +29,7 @@ class Url < ActiveRecord::Base
   end
 
   def http_verbs
-    request_types.pluck("request_type")
+    request_types.pluck("request_type").uniq
   end
 
   def referrers
