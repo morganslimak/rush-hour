@@ -82,7 +82,7 @@ RSpec.describe "url" do
                       "ip_id":1
                     })
 
-      expect(Url.most_to_least_requested).to eq([url2.url, url1.url, url3.url])
+      expect(Url.most_to_least_requested(Payload.all)).to eq([url2.url, url1.url, url3.url])
     end
   end
 

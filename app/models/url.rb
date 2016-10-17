@@ -6,8 +6,8 @@ class Url < ActiveRecord::Base
   has_many :user_agents, through: :payloads
 
 
-  def self.most_to_least_requested
-    grouped = Payload.group(:url).count
+  def self.most_to_least_requested(payloads)
+    grouped = payloads.group(:url).count
     sorted = grouped.sort_by{|k, v| v}.reverse
     sorted.map{|obj| obj.first.url}
   end

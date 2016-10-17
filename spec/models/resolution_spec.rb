@@ -57,7 +57,7 @@ RSpec.describe "resolution" do
                       "ip_id":1
                     })
       expected = {"1920x1080" => 2, "320x568" => 1}
-      expect(Resolution.list_resolutions).to eq(expected)
+      expect(Resolution.list_resolutions(Payload.all)).to eq(expected)
     end
   end
 

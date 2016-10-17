@@ -50,7 +50,7 @@ RSpec.describe "user_agent" do
                     })
 
       expected = {"Firefox 48.0"=>1, "Chrome 53.0.2785"=>2}
-      expect(UserAgent.list_browsers).to eq(expected)
+      expect(UserAgent.list_browsers(Payload.all)).to eq(expected)
     end
   end
 
@@ -91,7 +91,7 @@ RSpec.describe "user_agent" do
                     })
 
       expected = {"Mac OS X 10.11"=>1, "Windows 7"=>2}
-      expect(UserAgent.list_os).to eq(expected)
+      expect(UserAgent.list_os(Payload.all)).to eq(expected)
     end
   end
 

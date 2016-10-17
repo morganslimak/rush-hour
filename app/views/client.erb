@@ -28,19 +28,19 @@
       </tr>
       <tr>
         <th>Urls Most Requested To Least</th>
-        <td><%= @client.urls.most_to_least_requested.join(",") %>
+        <td><%= @client.urls.most_to_least_requested(@client.payloads).join(",") %>
       </tr>
       <tr>
         <th>Most Common Web Browsers</th>
-        <td><%= @client.user_agents.list_browsers %>
+        <td><%= @client.user_agents.list_browsers(@client.payloads) %>
       </tr>
       <tr>
         <th>Most Common Operating Systems</th>
-        <td><%= @client.user_agents.list_os %>
+        <td><%= @client.user_agents.list_os(@client.payloads) %>
       </tr>
       <tr>
         <th>Screen Resolutions</th>
-        <td><%= @client.resolutions.list_resolutions %>
+        <td><%= @client.resolutions.list_resolutions(@client.payloads) %>
       </tr>
     </table>
   </body>

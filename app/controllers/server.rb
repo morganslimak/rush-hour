@@ -53,5 +53,11 @@ module RushHour
       end
     end
 
+    get '/sources' do
+      @clients = Client.all
+
+      erb :clients
+    end
+
   end
 end
